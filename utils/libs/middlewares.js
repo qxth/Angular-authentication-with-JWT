@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser')
 const morgan = require('morgan');
 const passport = require('passport')
+const cors = require('cors')
 
 module.exports = app => {
     const host = process.env.HOST || '0.0.0.0';
@@ -8,6 +9,7 @@ module.exports = app => {
     app.set('port', port, host )
 
     app.use(morgan('dev'));
+    app.use(cors())
     
     
     app.use(bodyParser.json());
